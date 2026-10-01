@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-base: #0C0A09;
+    --bg-surface: #1A1614;
+    --bg-surface-hover: #26201D;
+    --bg-surface-border: rgba(242, 102, 10, 0.15);
+    
+    --color-ember: #F2660A;
+    --color-flame: #FF8A1E;
+    --color-gold: #FACC15;
+    --color-ash: #A8A29E;
+    --color-smoke: #F5F5F4;
+    --color-glow: #7C2D12;
+  }
+
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    background-color: #0C0A09;
+    color: #F5F5F4;
+  }
+
+  body {
+    background-color: #0C0A09;
+    color: #F5F5F4;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-display), var(--font-inter), system-ui, sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0C0A09;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #26201D;
+    border-radius: 4px;
+    border: 1px solid rgba(242, 102, 10, 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #F2660A;
+  }
+}
+
+/* Custom Design Tokens & Brand Utilities */
+@layer utilities {
+  /* Brand Color Tokens */
+  .bg-base { background-color: #0C0A09; }
+  .bg-surface { background-color: #1A1614; }
+  .bg-surface-hover { background-color: #26201D; }
+  
+  .text-ember { color: #F2660A; }
+  .text-flame { color: #FF8A1E; }
+  .text-gold { color: #FACC15; }
+  .text-ash { color: #A8A29E; }
+  .text-smoke { color: #F5F5F4; }
+
+  /* Kinetic Gradient Text Tokens */
+  .text-gradient-ember {
+    background: linear-gradient(135deg, #F5F5F4 0%, #FF8A1E 45%, #F2660A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FACC15 50%, #FF8A1E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-ash {
+    background: linear-gradient(135deg, #F5F5F4 0%, #A8A29E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Warm Glow Shadow Tokens (No Flat Gray Shadows) */
+  .shadow-ember-sm {
+    box-shadow: 0 4px 16px -2px rgba(242, 102, 10, 0.25);
+  }
+
+  .shadow-ember-glow {
+    box-shadow: 0 0 30px -4px rgba(242, 102, 10, 0.35);
+  }
+
+  .shadow-ember-lg {
+    box-shadow: 0 15px 50px -10px rgba(242, 102, 10, 0.5);
+  }
+
+  .shadow-flame-glow {
+    box-shadow: 0 0 30px -4px rgba(255, 138, 30, 0.35);
+  }
+
+  .shadow-gold-glow {
+    box-shadow: 0 0 25px -4px rgba(250, 204, 21, 0.35);
+  }
+
+  .shadow-ember-deep {
+    box-shadow: 0 20px 80px -20px rgba(124, 45, 18, 0.6);
+  }
+
+  /* Custom Angaar Glassmorphism */
+  .glass-card {
+    background: linear-gradient(145deg, rgba(26, 22, 20, 0.85) 0%, rgba(12, 10, 9, 0.9) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(242, 102, 10, 0.14);
+  }
+
+  .glass-card-interactive {
+    background: linear-gradient(145deg, rgba(26, 22, 20, 0.85) 0%, rgba(12, 10, 9, 0.9) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  .glass-card-interactive:hover {
+    border-color: rgba(242, 102, 10, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px -10px rgba(242, 102, 10, 0.3);
+  }
+
+  .glass-nav {
+    background: rgba(12, 10, 9, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Decorative Noise Background */
+  .bg-noise {
+    background-image: radial-gradient(rgba(242, 102, 10, 0.06) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+}
+
+/* Keyframes & Motion Tokens */
+@keyframes emberPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-ember-pulse {
+  animation: emberPulse 4s ease-in-out infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
