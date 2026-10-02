@@ -1,3 +1,9 @@
+/**
+ * CinematicLoader.tsx
+ * 
+ * Cinematic loading screen with SVG crack animations and lava reveals.
+ * Developed by: Shailja Singh (@shailja1409singh)
+ */
 "use client";
 
 import React, { useState, useEffect } from "react";
