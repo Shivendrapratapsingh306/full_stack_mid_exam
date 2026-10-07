@@ -7,7 +7,7 @@ The Angaar Labs project is a Next.js-based web experience focused on modern UI, 
 
 ## Getting Started
 
-Run `npm install` and then `npm run dev` to start the project locally.
+https://full-stack-mid-exam.onrender.com/
   
 ## Core Contributors  
 - Shailja Singh (@shailja1409singh) : Motion Graphics and UI Integration 
