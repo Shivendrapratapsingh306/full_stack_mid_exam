@@ -32,13 +32,11 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => document.body.style.overflow = "";
-  }, [mobileMenuOpen]);
+  document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [mobileMenuOpen]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
